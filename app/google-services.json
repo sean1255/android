@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "466315915551",
+    "firebase_url": "https://beside-you-81ca4.firebaseio.com",
+    "project_id": "beside-you-81ca4",
+    "storage_bucket": "beside-you-81ca4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466315915551:android:a4e54c2b3dc088d05fc02a",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466315915551-hj6eoerfkprbt4mpm7giqt9s9mrjouan.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.test",
+            "certificate_hash": "329f45587a23a2e6a8dde4ae84ea32d400576ccc"
+          }
+        },
+        {
+          "client_id": "466315915551-jffb2htj2aql9f02agjednt2rtg9dmq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvU-k0_VI9iJAuIzjSGxATenpEVSkhVek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466315915551-jffb2htj2aql9f02agjednt2rtg9dmq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

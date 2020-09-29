@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#3688F3">
+
+    <TextView
+        android:id="@+id/maintextView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="prop"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="prop은 화상통화와 GPS를 기반으로 한 봉사목적 어플입니다."
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/besideyou" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/disabled"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/button_background"
+            android:text="도움이 필요합니다."
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/nondisabled"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/button_background"
+            android:text="봉사자로 참여하고 싶습니다."
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</LinearLayout>
