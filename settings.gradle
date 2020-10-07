@@ -1,2 +1,4 @@
+include ':mobilertc'
+include ':commonlib'
 rootProject.name='test'
 include ':app'
