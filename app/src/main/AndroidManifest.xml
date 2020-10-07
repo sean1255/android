@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,36 +13,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".VideoChatActivity"></activity>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="sq7iptbayj"/>
+            android:value="sq7iptbayj" />
 
-        <activity android:name=".IntroActivity"
+        <activity
+            android:name=".IntroActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".SignUpActivity">
-        </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".SignUp1Activity">
-        </activity>
-        <activity android:name=".SignUp2Activity">
-        </activity>
-        <activity android:name=".NaverMapActivity">
-        </activity>
-        <activity android:name=".Division">
-        </activity>
-        <activity android:name=".VolunteersActivity">
-        </activity>
-        <activity android:name=".DisabledActivity">
-        </activity>
-
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SignUp1Activity"></activity>
+        <activity android:name=".SignUp2Activity"></activity>
+        <activity android:name=".NaverMapActivity"></activity>
+        <activity android:name=".Division"></activity>
+        <activity android:name=".VolunteersActivity"></activity>
+        <activity android:name=".DisabledActivity"></activity>
     </application>
 
 </manifest>
