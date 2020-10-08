@@ -18,12 +18,16 @@ import us.zoom.sdk.ZoomSDKInitializeListener;
 import us.zoom.sdk.StartMeetingOptions;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
+import static java.util.Calendar.PM;
 import static java.util.Calendar.getInstance;
 
 public class VideoChatActivity extends AppCompatActivity {
@@ -35,11 +39,29 @@ public class VideoChatActivity extends AppCompatActivity {
     private Button login;
     */
 
+    private ZoomSDKAuthenticationListener authLsitener = new ZoomSDKAuthenticationListener() {
+        @Override
+        public void onZoomSDKLoginResult(long result) {
+            if (result == ZoomAuthenticationError.ZOOM_AUTH_ERROR_SUCCESS) {
+                startMeeting(VideoChatActivity.this);
+            }
+        }
+
+        @Override
+        public void onZoomSDKLogoutResult(long l) { }
+        @Override
+        public void onZoomIdentityExpired() { }
+        @Override
+        public void onZoomAuthIdentityExpired() { }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_chat);
 
+        initSdk(this);
+        initViews();
         /*
         //setting
         join = (Button)findViewById(R.id.join_button);
@@ -151,7 +173,64 @@ public class VideoChatActivity extends AppCompatActivity {
     // create a dialog to join meeting
     private void createJoinMeetingDialog() {
         new
-                AlertDialog.Builder(this).setView(R.layout.activity_join_meeting_dialog).setPositiveButton("JOIN")
+                AlertDialog.Builder(this).setView(R.layout.activity_join_meeting_dialog)
+                .setPositiveButton("JOIN", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        AlertDialog dialog = (AlertDialog) dialogInterface;
+                        TextInputEditText numberInput = dialog.findViewById(R.id.meeting_no_input);
+                        TextInputEditText passwordInput = dialog.findViewById(R.id.password_input);
+                        if (numberInput != null && numberInput.getText() != null && passwordInput != null && passwordInput.getText() != null) {
+                            String meetingNumber = numberInput.getText().toString();
+                            String password = passwordInput.getText().toString();
+                            if (meetingNumber.trim().length() > 0 && password.trim().length() > 0) {
+                                joinMeeting(VideoChatActivity.this, meetingNumber, password);
+                            }
+                        }
+                    }
+                }).show();
     }
 
+    // create a  dialog to login zoom
+    private void createLoginDialog() {
+        new
+                AlertDialog.Builder(this).setView(R.layout.login_dialog)
+                .setPositiveButton("LOGIN", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        AlertDialog dialog = (AlertDialog) dialogInterface;
+                        TextInputEditText emailInput = dialog.findViewById(R.id.email_input);
+                        TextInputEditText passwordInput = dialog.findViewById(R.id.pw_input);
+                        if (emailInput != null && emailInput.getText() != null && passwordInput != null && passwordInput.getText() != null) {
+                            String email = emailInput.getText().toString();
+                            String password = passwordInput.getText().toString();
+                            if(email.trim().length() > 0 && password.trim().length() > 0) {
+                                login(email, password);
+                            }
+                        }
+                    }
+                }).show();
+    }
+
+    // initViews method to handle onClick events for the Join Meeting and Login & Start Meeting buttons
+    private void initViews() {
+
+        findViewById(R.id.join_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                createJoinMeetingDialog();
+            }
+        });
+
+        findViewById(R.id.login_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(ZoomSDK.getInstance().isLoggedIn()) {
+                    startMeeting(VideoChatActivity.this);
+                } else {
+                    createLoginDialog();
+                }
+            }
+        });
+    }
 }
