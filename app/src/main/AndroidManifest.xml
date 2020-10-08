@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VideoChatActivity"></activity>
+        <activity android:name=".VideoChatActivity" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
@@ -28,14 +28,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".SignUp1Activity"></activity>
-        <activity android:name=".SignUp2Activity"></activity>
-        <activity android:name=".NaverMapActivity"></activity>
-        <activity android:name=".Division"></activity>
-        <activity android:name=".VolunteersActivity"></activity>
-        <activity android:name=".DisabledActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SignUp1Activity" />
+        <activity android:name=".SignUp2Activity" />
+        <activity android:name=".NaverMapActivity" />
+        <activity android:name=".Division" />
+        <activity android:name=".VolunteersActivity" />
+        <activity android:name=".DisabledActivity" />
     </application>
 
 </manifest>
