@@ -8,8 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,7 @@ import us.zoom.sdk.JoinMeetingOptions;
 import us.zoom.sdk.JoinMeetingParams;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.StartMeetingOptions;
+import us.zoom.sdk.StartMeetingParams4NormalUser;
 import us.zoom.sdk.ZoomApiError;
 import us.zoom.sdk.ZoomAuthenticationError;
 import us.zoom.sdk.ZoomSDK;
@@ -34,7 +37,9 @@ public class DisabledActivity extends AppCompatActivity {
         @Override
         public void onZoomSDKLoginResult(long result) {
             if (result == ZoomAuthenticationError.ZOOM_AUTH_ERROR_SUCCESS) {
+                //String meetingNo = "223 398 2033";
                 startMeeting(DisabledActivity.this);
+                //joinMeeting(DisabledActivity.this, "560 251 6065","00");
             }
         }
 
@@ -65,8 +70,20 @@ public class DisabledActivity extends AppCompatActivity {
                 //    Log.e("화상통화","화상통화");
                 //    break;
                 case R.id.connection:
-                    Log.e("호출","호출");
+                    //Log.e("호출","호출");
 
+                    Toast.makeText(DisabledActivity.this, "사회복지사가 배정되는 동안 잠시만 기다려주세요...", Toast.LENGTH_SHORT).show();
+                    Handler mhandler = new Handler();
+                    mhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            createVoluntaryDialog();
+                        }
+                    }, 3000);
+
+
+                    //createVoluntaryDialog();
+                    /*
                     NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     NotificationCompat.Builder builder = null;
 
@@ -90,7 +107,8 @@ public class DisabledActivity extends AppCompatActivity {
                     notificationManager.notify(1, notification);
                     notificationManager.cancel(1);
 
-                    startMainActivity();
+                     */
+                    //startMainActivity();
             }
         }
 
@@ -145,11 +163,22 @@ public class DisabledActivity extends AppCompatActivity {
 
     // 2-3. the start Meeting function
     private void startMeeting(Context context) {
+    //private void startMeeting(Context context, String meetingNo) {
+        //int ret = -1;
         ZoomSDK sdk = ZoomSDK.getInstance();
+
         if(sdk.isLoggedIn()) {
+            //    return ret;
+
+
             MeetingService meetingService = sdk.getMeetingService();
             StartMeetingOptions options = new StartMeetingOptions();
+
+            //StartMeetingParams4NormalUser params = new StartMeetingParams4NormalUser();
+            //params.meetingNo = meetingNo;
             meetingService.startInstantMeeting(context, options);
+            //System.out.println("현재 미팅 넘버" + meetingService.getCurrentRtcMeetingNumber());
+
         }
     }
 
@@ -195,6 +224,11 @@ public class DisabledActivity extends AppCompatActivity {
                 }).show();
     }
 
+    private void createVoluntaryDialog() {
+        new
+                AlertDialog.Builder(this).setView(R.layout.voluntary_dialog).show();
+    }
+
     // initViews method to handle onClick events for the Join Meeting and Login & Start Meeting buttons
     private void initViews() {
 
@@ -212,8 +246,11 @@ public class DisabledActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(ZoomSDK.getInstance().isLoggedIn()) {
+                    //String meetingNo = "223 398 2033";
                     startMeeting(DisabledActivity.this);
+                    //joinMeeting(DisabledActivity.this, "560 251 6065","00");
                 } else {
+                    //joinMeeting(DisabledActivity.this, "560 251 6065","00");
                     createLoginDialog();
                 }
             }

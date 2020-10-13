@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#3688F3"
+        android:orientation="vertical"
+        tools:context=".voluntaryActivity"
+        android:padding="7dp">
+
+
+        <Button
+            android:id="@+id/Videocall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="화상통화 도움주기 \n (일반 봉사자)"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/connection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="실시간 도움주기 \n (사회복지사)"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+    </LinearLayout>

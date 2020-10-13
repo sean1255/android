@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="'경남 창원시 의창구 중앙대로 263 오피스 프라자 609호' \n 경상남도발달장애인지원센터(이)가 가장 가까이 \n 위치합니다. 해당 위치의 사회 복지사를 호출합니다. \n 소요시간은 약 20분이며, 만약 사회복지사가 도착하지 않는다면 \n 전화 버튼을 눌러 연락할 수 있습니다. "
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="145dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:gravity="center"
+        android:text="전화하기"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView5"
+        tools:ignore="MissingConstraints"></Button>
+
+    <Button
+        android:id="@+id/complete"
+        android:layout_width="145dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="4dp"
+        android:gravity="center"
+        android:text="호출취소"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintLeft_toRightOf="@id/call"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/call"></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>
