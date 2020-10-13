@@ -30,6 +30,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import static java.util.Calendar.PM;
 import static java.util.Calendar.getInstance;
 
+// logic (1) 장애인이 화상통화로 도움을 요청한다 -> token을 생성한다
+// logic (2) 해당 토큰으로 waiting 한다
+// logic (3) 봉사자가 도움 주기를 클릭한다 -> 해당 token을 할당하여 자동으로 들어가게끔
+
 public class VideoChatActivity extends AppCompatActivity {
 
     /*
@@ -142,6 +146,7 @@ public class VideoChatActivity extends AppCompatActivity {
 
     // 1. the join Meeting function
     private void joinMeeting(Context context, String meetingNumber, String password) {
+
         MeetingService meetingService = ZoomSDK.getInstance().getMeetingService();
         JoinMeetingOptions options = new JoinMeetingOptions();
         JoinMeetingParams params = new JoinMeetingParams();
